@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canciones del día</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+    </style>
+
+    <style>
+        body {
+            font-family: 'Oswald', sans-serif;
+            background-color: #070707;
+            color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: rgb(60, 54, 54);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #fdfdfd;
+        }
+
+        .formulario-canciones {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .formulario-canciones input {
+            padding: 10px;
+            font-size: 1rem;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            transition: all 0.3s ease;
+        }
+
+        .formulario-canciones input:focus {
+            border-color: #3498db;
+            outline: none;
+            box-shadow: 0 0 8px rgba(52, 152, 219, 0.3);
+        }
+
+        .formulario-canciones button {
+            padding: 10px;
+            background-color: #c234db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .formulario-canciones button:hover {
+            background-color: #b92990;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #000000;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+
+        .btn-acciones {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-acciones button {
+            background-color: #e73ca3;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-acciones button:hover {
+            background-color: #ae2562;
+        }
+
+        .btn-favorita {
+            background-color: #2ecc71;
+        }
+
+        .btn-favorita:hover {
+            background-color: #27ae60;
+        }
+
+        /* Mensajes */
+        .mensaje-error {
+            color: red;
+            font-size: 0.9rem;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .mensaje-exito {
+            color: green;
+            font-size: 0.9rem;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+        }
+
+       
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>¿Qué ponemos hoy?</h1>
+    
+        <div id="formulario-contenedor" class="formulario-canciones">
+            <input type="text" id="nombre-cancion" placeholder="Nombre de la canción" list="sugerencias-canciones">
+            <datalist id="sugerencias-canciones"></datalist> 
+            <input type="text" id="artista" placeholder="Artista">
+            <input type="text" id="genero" placeholder="Género">
+            <input type="text" id="link-cancion" placeholder="Link a la canción">
+            <button id="btn-agregar">Agregá tu canción</button>
+        </div>
+    
+        <h2>Mis Canciones</h2>
+        <ul id="lista-canciones"></ul>
+    </div>
+
+    <div id="player"></div>
+
+    <script src="https://www.youtube.com/iframe_api"></script>
+
+    <script src="AppQueue-Ellis.js"></script>
+</body>
+</html>
